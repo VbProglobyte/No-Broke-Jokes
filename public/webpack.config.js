@@ -3,10 +3,8 @@ const path = require('path');
 
 const config = {
   entry: {
-    app: './assets/js/index.js',
-    favorites: './assets/js/favorites.js',
-    topic: './assets/js/topic.js',
-  },
+    app: 'index.js',
+      },
   output: {
     path: __dirname + '/dist',
     filename: '[name].bundle.js',
@@ -30,7 +28,7 @@ const config = {
     new WebpackPwaManifest({
       fingerprints: false,
       name: 'No-Broke-Jokes app',
-      short_name: 'No-Broke-Jokes',
+      short_name: 'Budget-app',
       description: 'An application that allows you to add expenses and deposits to their budget with or without a connection.',
       background_color: '#01579b',
       theme_color: '#ffffff',
@@ -38,7 +36,7 @@ const config = {
       start_url: '/',
       icons: [
         {
-          src: path.resolve('public/icons/icon-192x192.png'),
+          src: path.resolve('icons/icon-192x192.png'),
           sizes: [96, 128, 192, 256, 384, 512],
           destination: path.join('public', 'icons'),
         },
