@@ -40,17 +40,53 @@ request.onsuccess = function (e) {
   }
 };
 
+function checkDatabase() {
+  console.log('check db invoked');
 
+  // Open a transaction on your NoBrokeStore db
+  let transaction = db.transaction(['NoBrokeStore'], 'readwrite');
+
+  // access your NoBrokeStore object
+  const store = transaction.objectStore('NoBrokeStore');
+
+  // Get all records from store and set to a variable
+  const getAll = store.getAll();
+
+  // If the request was successful
+  getAll.onsuccess = function () {
+    // adding items to the storage when online success 
+    if (getAll.result.length > 0) {
+      fetch('/api/transaction/bulk', {
+        method: 'POST',
+        body: JSON.stringify(getAll.result),
+        headers: {
+          Accept: 'application/json, text/plain, */*',
+          'Content-Type': 'application/json',
+        },
+      })
+        .then((response) => response.json())
+        .then((res) => {
+          // If our returned response is not empty
+          if (res.length !== 0) {
+            // Open another transaction to NoBrokeStore 
+            transaction = db.transaction(['NoBrokeStore'], 'readwrite');
+            // Assign the current store to a variable
+            const currentStore = transaction.objectStore('NoBrokeStore');
+            // existing entries to clear
+            currentStore.clear();
+          }
+        });
+    }
+  };
+}
 
 // //////////////////////////////////////////////////////////////////////
 
 const saveRecord = (record) => {
   // NoBrokeStore db with readwrite access
   const transaction = db.transaction(['NoBrokeStore'], 'readwrite');
-
   // Access your NoBrokeStore
   const store = transaction.objectStore('NoBrokeStore');
-
   // Add record to your store with add method.
   store.add(record);
 };
