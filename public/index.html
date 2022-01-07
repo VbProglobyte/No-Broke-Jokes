@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,10 +10,11 @@
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="styles.css">
-  <!-- <link rel="manifest" href="./dist/manifest.json"> -->
+  <!-- <link rel="manifest" href="./dist/manifest.webmanifest.json"> -->
 
   <title>No-Broke Jokes Budget Tracker</title>
 </head>
+
 <body>
   <div class="wrapper">
     <div class="total">
@@ -34,21 +36,20 @@
           <th>Amount</th>
         </thead>
         <tbody id="tbody">
-          
+
         </tbody>
       </table>
     </div>
-    
+
     <canvas id="myChart"></canvas>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
   <!-- <script src="dist/app.bundle.js"></script> -->
-  
   <script src="index.js"></script>
   <!-- database js -->
   <script src="indexedDb.js"></script>
-<!-- grabbed from group project -->
+  <!-- grabbed from group project -->
   <script type="text/javascript">
     (function () {
       if ("serviceWorker" in navigator) {
@@ -59,4 +60,5 @@
     })();
   </script>
 </body>
+
 </html>

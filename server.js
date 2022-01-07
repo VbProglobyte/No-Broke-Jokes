@@ -5,7 +5,7 @@ const compression = require("compression");
 
 // const PORT = process.env.PORT || 3000;
 const PORT = 3000;
-
+// initialize express 
 const app = express();
 
 app.use(logger("dev"));
@@ -16,8 +16,13 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-mongoose.connect("mongodb://localhost/budget", {
+// mongoose.connect(
+//   process.env.mongodb || 'mongodb://localhost/no-broke-jokes', 
+//   {
+mongoose.connect("mongodb://localhost/no-broke-jokes", {
   useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useCreateIndex: true,
   useFindAndModify: false
 });
 
