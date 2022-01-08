@@ -1,7 +1,7 @@
 let indexedDb;
 // database 
 let db;
-// REFS
+// REFS pull from activities - group project wont work alone 
 // "noBrokeDB"
 // "NoBrokeStore"
 
@@ -41,7 +41,7 @@ request.onsuccess = function (e) {
 };
 
 function checkDatabase() {
-  console.log('check db invoked');
+  console.log('db online');
 
   // Open a transaction on your NoBrokeStore db
   let transaction = db.transaction(['NoBrokeStore'], 'readwrite');
