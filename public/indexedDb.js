@@ -43,13 +43,13 @@ request.onsuccess = function (e) {
 function checkDatabase() {
   console.log('db online');
 
-  // Open a transaction on your NoBrokeStore db
+  // Open a transaction
   let transaction = db.transaction(['NoBrokeStore'], 'readwrite');
 
-  // access your NoBrokeStore object
+  // access your transaction
   const store = transaction.objectStore('NoBrokeStore');
 
-  // Get all records from store and set to a variable
+  // Get all records from the store
   const getAll = store.getAll();
 
   // If the request was successful
