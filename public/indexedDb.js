@@ -1,4 +1,4 @@
-let indexedDb;
+// let indexedDb;
 // database 
 let db;
 // REFS pull from activities - group project wont work alone 
