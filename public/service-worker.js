@@ -1,3 +1,4 @@
+// cache storage 
 const FILES_TO_CACHE = [
   '/',
   '/index.html',
